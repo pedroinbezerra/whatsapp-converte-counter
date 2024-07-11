@@ -4,4 +4,4 @@
 
 echo "Atualizando projeto: Whatsapp converte counter"
 
-git pull && docker-compose down --remove-orphans && docker-compose up -d --build
+git pull && docker compose down --remove-orphans && docker compose up -d --build
