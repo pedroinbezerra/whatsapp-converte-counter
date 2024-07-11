@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+  whatsapp-convert-counter:
+    container_name: whatsapp-convert-counter
+    build:
+      context: .
+      args:
+        project: whatsapp-convert-counter
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "3036:3036"
+    volumes:
+      - .:/opt/whatsapp-convert-counter
+      - /opt/whatsapp-convert-counter/node_modules
+    command: npm run start
+    networks:
+      - default
+
+networks:
+  default:
+    driver: bridge
